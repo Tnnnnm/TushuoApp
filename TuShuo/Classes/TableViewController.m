@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "GalleryCell.h"
 
 @interface TableViewController ()
 {
@@ -53,17 +54,26 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *Identifier = @"UITableViewIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
+    static NSString *GalleryCellIdentifier = @"GalleryCell";
+    GalleryCell *cell = (GalleryCell *)[tableView dequeueReusableCellWithIdentifier:GalleryCellIdentifier];
+    if(cell == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GalleryCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
-
-    NSInteger row = indexPath.row;
-    cell.textLabel.text = @"My Text";
-    [cell.imageView setImageWithURL:[arr_imgs objectAtIndex:row] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    
+    [cell.ImageArea setImageWithURL:[arr_imgs objectAtIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    cell.LabelArea.text = @"hello";
     return cell;
+//    static NSString *Identifier = @"UITableViewIdentifier";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
+//    }
+//
+//    NSInteger row = indexPath.row;
+//    cell.textLabel.text = @"My Text";
+//    [cell.imageView setImageWithURL:[arr_imgs objectAtIndex:row] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+//    
+//    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +88,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0f;
+    return 180.0f;
 }
 
 - (void)didReceiveMemoryWarning

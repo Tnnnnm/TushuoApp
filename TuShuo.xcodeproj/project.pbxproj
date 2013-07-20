@@ -27,6 +27,8 @@
 		CC827AA2179A65E500587C65 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = CC827A93179A65E500587C65 /* UIImage+WebP.m */; };
 		CC827AA3179A65E500587C65 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC827A95179A65E500587C65 /* UIImageView+WebCache.m */; };
 		CC9647F817927CD200933A05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9647F717927CD200933A05 /* QuartzCore.framework */; };
+		CC9C8D94179A89F200A826CF /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC9C8D93179A89F200A826CF /* GalleryCell.xib */; };
+		CC9C8D9A179A8C0F00A826CF /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9C8D99179A8C0F00A826CF /* GalleryCell.m */; };
 		CCA6EF5917905DB100127714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6EF5817905DB100127714 /* UIKit.framework */; };
 		CCA6EF5B17905DB100127714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6EF5A17905DB100127714 /* Foundation.framework */; };
 		CCA6EF5D17905DB100127714 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6EF5C17905DB100127714 /* CoreGraphics.framework */; };
@@ -111,6 +113,9 @@
 		CC827A94179A65E500587C65 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		CC827A95179A65E500587C65 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		CC9647F717927CD200933A05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC9C8D93179A89F200A826CF /* GalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
+		CC9C8D98179A8C0F00A826CF /* GalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCell.h; sourceTree = "<group>"; };
+		CC9C8D99179A8C0F00A826CF /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
 		CCA6EF5517905DB100127714 /* TuShuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuShuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA6EF5817905DB100127714 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCA6EF5A17905DB100127714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -332,6 +337,9 @@
 				CCA6EFC417905F5E00127714 /* UserViewController.m */,
 				CCA6EFC617905F6B00127714 /* SetterViewController.h */,
 				CCA6EFC717905F6B00127714 /* SetterViewController.m */,
+				CC9C8D93179A89F200A826CF /* GalleryCell.xib */,
+				CC9C8D98179A8C0F00A826CF /* GalleryCell.h */,
+				CC9C8D99179A8C0F00A826CF /* GalleryCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 				CCA7FB3817911329002F0B55 /* top_bar.png in Resources */,
 				CCA7FB3917911329002F0B55 /* top_bar@2x.png in Resources */,
 				CC827A40179A60BC00587C65 /* placeholder.png in Resources */,
+				CC9C8D94179A89F200A826CF /* GalleryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +475,7 @@
 				CC827AA1179A65E500587C65 /* UIImage+MultiFormat.m in Sources */,
 				CC827AA2179A65E500587C65 /* UIImage+WebP.m in Sources */,
 				CC827AA3179A65E500587C65 /* UIImageView+WebCache.m in Sources */,
+				CC9C8D9A179A8C0F00A826CF /* GalleryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
