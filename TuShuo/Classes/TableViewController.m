@@ -17,12 +17,25 @@
 
 @implementation TableViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        self.title = @"Home";
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self.navigationController setNavigationBarHidden:YES];
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 44)];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     
     arr_imgs = @[
@@ -54,15 +67,45 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *GalleryCellIdentifier = @"GalleryCell";
-    GalleryCell *cell = (GalleryCell *)[tableView dequeueReusableCellWithIdentifier:GalleryCellIdentifier];
-    if(cell == nil){
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GalleryCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+//    static NSString *GalleryCellIdentifier = @"GalleryCell";
+//    GalleryCell *cell = (GalleryCell *)[tableView dequeueReusableCellWithIdentifier:GalleryCellIdentifier];
+//    if(cell == nil){
+//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GalleryCell" owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//    }
+//    [cell.ImageArea setImageWithURL:[arr_imgs objectAtIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+//    cell.LabelArea.text = @"hello";
+//    return cell;
+    
+    static NSString *customidentifier = @"GalleryCell";
+    static BOOL nibsRegistered = NO;
+    if(!nibsRegistered)
+    {
+        UINib *nib = [UINib nibWithNibName:@"GalleryCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:@"GalleryCell"];
+        nibsRegistered = YES;
     }
+    GalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:customidentifier];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg"]];
+    cell.selectionStyle = UITableViewCellEditingStyleNone;
     [cell.ImageArea setImageWithURL:[arr_imgs objectAtIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    cell.LabelArea.text = @"hello";
+    cell.LabelArea.text = @"在沉默和言语之间";
+//    cell.LabelArea.font = [UIFont systemFontOfSize:13.0f];
+    cell.LabelArea.textColor = [UIColor grayColor];
+    
+    cell.LabelAlpha.textColor = [UIColor whiteColor];
+    cell.LabelAlpha.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+
+//    cell.thewords.text = [self.filmkeys objectAtIndex:[indexPath row]];
+//    cell.thewords.font = [UIFont systemFontOfSize:12.0];
+//    cell.thewords.textColor = [UIColor grayColor];
+//    cell.updateat.text = [self	.films objectForKey:[self.filmkeys objectAtIndex:[indexPath row]]];
+//    cell.updateat.font = [UIFont systemFontOfSize:12.0];
+//    cell.updateat.textColor = [UIColor grayColor];
+    
     return cell;
+    
+    
 //    static NSString *Identifier = @"UITableViewIdentifier";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
 //    if (cell == nil) {
@@ -78,17 +121,24 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"the selected indexPath:%@",indexPath);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ImageViewController *imageViewCtrl = [[ImageViewController alloc] init];
     NSString *imgURL = [arr_imgs objectAtIndex:indexPath.row];
     imageViewCtrl.imgURL = imgURL;
     imageViewCtrl.navigationItem.title = @"ImageView";
     [self.navigationController pushViewController:imageViewCtrl animated:YES];
+    if(self.navigationController == nil){
+        NSLog(@"nil");
+    }else{
+        NSLog(@"not nil");
+    }
 }
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180.0f;
+    return 250.0f;
 }
 
 - (void)didReceiveMemoryWarning

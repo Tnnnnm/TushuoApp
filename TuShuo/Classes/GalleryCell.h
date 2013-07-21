@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *ImageArea;
 @property (weak, nonatomic) IBOutlet UILabel *LabelArea;
+@property (weak, nonatomic) IBOutlet UILabel *LabelAlpha;
 
 @end

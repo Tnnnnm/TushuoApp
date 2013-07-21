@@ -40,8 +40,10 @@
     [viewControllers addObject:navigation];
     
     TableViewController *galleryVC = [[TableViewController alloc] init];
+//    The NavigationController
+    UINavigationController *navigationGallery = [[UINavigationController alloc] initWithRootViewController:galleryVC];
     galleryVC.tabBarItem = [[TKTabBarItem alloc] initWithTitle:@"画廊" unselectedImage:[UIImage imageNamed:@"goods"] selectedImage:[UIImage imageNamed:@"goods"] tag:1];
-    [viewControllers addObject:galleryVC];
+    [viewControllers addObject:navigationGallery];
     
     SearchViewController *searchVC = [[SearchViewController alloc] init];
     searchVC.tabBarItem = [[TKTabBarItem alloc] initWithTitle:@"动态" unselectedImage:[UIImage imageNamed:@"feed"] selectedImage:[UIImage imageNamed:@"feed"] tag:2];
@@ -54,7 +56,7 @@
     SetterViewController *setterVC = [[SetterViewController alloc] init];
     setterVC.tabBarItem = [[TKTabBarItem alloc] initWithTitle:@"设置" unselectedImage:[UIImage imageNamed:@"more"] selectedImage:[UIImage imageNamed:@"more"] tag:4];
     [viewControllers addObject:setterVC];
-    
+        
     
     TKTabBarController *tabBarController = [[TKTabBarController alloc] init];
     tabBarController.tabBar.tkBackgroundImage = [UIImage imageNamed:@"tab_bar"];
