@@ -42,6 +42,7 @@
     TableViewController *galleryVC = [[TableViewController alloc] init];
 //    The NavigationController
     UINavigationController *navigationGallery = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+    [navigationGallery.navigationBar setBackgroundImage:[UIImage imageNamed:@"top_bar"] forBarMetrics:UIBarMetricsDefault];
     galleryVC.tabBarItem = [[TKTabBarItem alloc] initWithTitle:@"画廊" unselectedImage:[UIImage imageNamed:@"goods"] selectedImage:[UIImage imageNamed:@"goods"] tag:1];
     [viewControllers addObject:navigationGallery];
     

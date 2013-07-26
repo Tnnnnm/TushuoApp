@@ -22,7 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Home";
+        self.title = @"画廊";
     }
     return self;
 }
@@ -31,6 +31,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    navigation bar
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+    
+    UIButton *setterView = [UIButton buttonWithType:UIButtonTypeCustom];
+    [setterView setImage:[UIImage imageNamed:@"category"] forState:UIControlStateNormal];
+    [setterView addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [setterView setFrame:CGRectMake(0, 0, 28, 28)];
+    UIBarButtonItem *setterButton = [[UIBarButtonItem alloc] initWithCustomView:setterView];
+    self.navigationItem.leftBarButtonItem = setterButton;
+    
+    UIButton *detailView = [UIButton buttonWithType:UIButtonTypeCustom];
+    [detailView setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+    [detailView addTarget:self action:@selector(showDetail:) forControlEvents:UIControlEventTouchUpInside];
+    [detailView setFrame:CGRectMake(0, 0, 28, 28)];
+    UIBarButtonItem *detailButton = [[UIBarButtonItem alloc] initWithCustomView:detailView];
+    self.navigationItem.rightBarButtonItem = detailButton;
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"] style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
 //    [self.navigationController setNavigationBarHidden:YES];
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 44)];
     tableView.delegate = self;

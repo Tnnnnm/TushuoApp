@@ -48,8 +48,8 @@
     
     
     //set the background to white color
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_nosie"]];
     //initialize and allocate your scroll view
     self.myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     //set the paging to yes
